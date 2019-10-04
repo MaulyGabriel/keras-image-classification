@@ -18,7 +18,7 @@ class Cnn:
         self.BATCH_SIZE = 8
         self.EPOCHS = 10
         self.TOTAL_IMAGES = 600
-        self.model = ResNet50(weight='imagenet', include_top=False, input_shape=(self.HEIGHT, self.WIDTH, 3))
+        self.model = ResNet50(weights='imagenet', include_top=False, input_shape=(self.HEIGHT, self.WIDTH, 3))
         self.train = 'data'
         self.classes = ['movidius', 'raspberry']
         self.layers = [1024, 1024]
@@ -46,7 +46,7 @@ class Cnn:
         for layer in self.model.layers:
             layer.trainable = False
 
-        x = self.model.ooutput
+        x = self.model.output
         x = Flatten()(x)
 
         for fc in full_layers:
