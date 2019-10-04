@@ -1,10 +1,14 @@
+from model import Cnn
+
 class App:
 
     def __init__(self):
-        pass
+
+        self.model = Cnn()
 
     def run(self):
-        pass
+
+        self.model.train_model()
 
 
 if __name__ == '__main__':
